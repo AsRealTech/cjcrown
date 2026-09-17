@@ -50,14 +50,30 @@ Vercel only serves the web app.
 1. **Deploy the Convex backend first** (from your laptop, after `npm install`):
 
    ```bash
-   npx convex dev          # creates/links your production Convex project
-   # then, for the production build of the backend:
-   npx convex deploy
+   npx convex dev                  # first run: creates your Convex project + src/convex/_generated
+   npx convex env set CONVEX_SITE_URL https://<deployment-name>.convex.site --prod
+   npx convex deploy               # pushes functions + auth config to production
    ```
 
-   `npx convex deploy` pushes the functions to the production deployment and
-   prints a `CONVEX_DEPLOY_KEY` when run with `--cmd-url-env-var-name` or you can
-   create one in the Convex dashboard (Settings → Deploy keys).
+   **`CONVEX_SITE_URL` is required for sign-in to work.** It must be your
+   deployment's HTTP-actions URL — note the **`.convex.site`** ending, not
+   `.convex.cloud`. The deployment name is the first part of your client URL:
+   if `VITE_CONVEX_URL` is `https://calculating-skunk-425.convex.cloud`, the
+   site URL is `https://calculating-skunk-425.convex.site`.
+
+   ### Troubleshooting: `InvalidAuthConfig` on `npx convex deploy`
+
+   `The pushed auth config is invalid: Invalid provider domain URL "…"` means an
+   environment variable used by `src/convex/auth.config.ts` holds a value that
+   isn't a URL. To fix:
+
+   1. Inspect the deployment's variables: `npx convex env list --prod`
+   2. Also check any local `.env` / `.env.local` files in the project folder for
+      `CONVEX_SITE_URL` or `VLY_CONVEX_AUTH_ISSUER` lines — delete or correct
+      anything that isn't a proper `https://…` URL.
+   3. `CONVEX_SITE_URL` must be `https://<deployment-name>.convex.site`.
+      `VLY_CONVEX_AUTH_ISSUER` is only used by the managed preview environment —
+      on your own deployment you can delete that variable entirely.
 
 2. **Push this project to a GitHub repository** (GitHub, GitLab, or Bitbucket
    all work).
