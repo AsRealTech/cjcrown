@@ -210,7 +210,7 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
               {(
                 [
                   ["signIn", "Sign in"],
-                 {/* ["signUp", "Sign up"], */}
+                  ["signUp", "Sign up"],
                 ] as const
               ).map(([value, label]) => (
                 <button
