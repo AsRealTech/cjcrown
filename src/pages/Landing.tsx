@@ -90,7 +90,7 @@ export default function Landing() {
               <Reveal>
                 <Badge variant="outline" className="mb-6 gap-1.5 rounded-full border-primary/30 bg-primary/5 px-3 py-1 text-xs font-medium text-primary">
                   <Sparkles className="size-3" />
-                  New collection — Autumn 2026
+                  New collection — CJ CROWN 2026
                 </Badge>
               </Reveal>
               <Reveal delay={0.05}>
