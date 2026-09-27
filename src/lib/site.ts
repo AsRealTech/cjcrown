@@ -3,13 +3,13 @@ import { api } from "@/convex/_generated/api";
 
 /** Central place for site content defaults; admins override via dashboard. */
 export const SITE = {
-  name: "Hearth & Grain",
+  name: "CJ CROWN",
   tagline: "Furniture made to be lived with",
-  email: "hello@hearthandgrain.com",
-  phone: "+1 (555) 214-8870",
+  email: "hello@cjcrow.com",
+  phone: "+1240893",
   address: "218 Meridian Row, Suite 4, Portland, OR",
   hours: "Mon–Sat, 10am–6pm",
-  instagram: "@hearthandgrain",
+  instagram: "@cjcrowm",
 };
 
 export const SITE_SETTINGS_KEYS = {
