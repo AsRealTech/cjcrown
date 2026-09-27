@@ -210,7 +210,7 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
               {(
                 [
                   ["signIn", "Sign in"],
-                  ["signUp", "Sign up"],
+                 {/* ["signUp", "Sign up"], */}
                 ] as const
               ).map(([value, label]) => (
                 <button
@@ -326,7 +326,7 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
             </form>
 
             {mode === "signIn" && (
-              <p className="mt-4 text-center text-xs text-muted-foreground">
+              <p className="mt-4 hidden text-center text-xs text-muted-foreground">
                 New to the studio?{" "}
                 <button
                   type="button"
