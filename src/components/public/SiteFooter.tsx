@@ -48,17 +48,7 @@ export function SiteFooter() {
                 Team sign in
               </Link>
             </li>
-            <li>
-              <a
-                href="/hearth-and-grain-source.zip"
-                download
-                className="inline-flex items-center gap-1.5 hover:text-foreground"
-                title="Download the full project source code as a zip file"
-              >
-                <Download className="size-3.5" />
-                Download source code
-              </a>
-            </li>
+           
           </ul>
         </div>
 
